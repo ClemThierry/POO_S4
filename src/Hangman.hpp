@@ -3,13 +3,12 @@
 #include <string>
 #include <vector>
 
-struct Player {
-    int m_nbLife;
-};
-
 void        hangmanGame();
 std::string chooseRandomWord();
 char        askLetterToThePlayer();
-bool        isWordFound(std::string playerWord, std::string wordToGuess);
-bool        isPlayerAlive(int livesOfPlayer);
-bool        isTheLetterInTheWord(char letterChooseByPlayer, std::string wordToGuess);
+bool        isWordFound(const std::string playerWord, const std::string wordToGuess);
+bool        isPlayerAlive(const int livesOfPlayer);
+bool        isTheLetterInTheWord(char letterChooseByPlayer, const std::string wordToGuess);
+void        findAllOccurances(std::vector<size_t>& vec, const char letterChooseByPlayer, const std::string wordToGuess);
+std::string updateGuessedWord(const char letterChooseByPlayer, const std::string wordToGuess, std::string wordGuessed);
+void        endGameAnnounce(const int livesOfPlayer);

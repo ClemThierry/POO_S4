@@ -14,25 +14,17 @@ void hangmanGame()
     while (isPlayerAlive(playerLives) && !isWordFound(findingLetterOfTheWordToGuess, wordToGuess)) {
         char letter = askLetterToThePlayer();
         if (isTheLetterInTheWord(letter, wordToGuess)) {
-            // actualiser le mot à chercher
-            std::cout << "c'est dans le mot";
+            std::cout << "Good choice !" << std::endl;
+            findingLetterOfTheWordToGuess = updateGuessedWord(letter, wordToGuess, findingLetterOfTheWordToGuess);
         }
         else {
+            std::cout << "Nope" << std::endl;
             playerLives--;
+            std::cout << "You only have " << playerLives << " lives left." << std::endl;
         }
+        std::cout << findingLetterOfTheWordToGuess << std::endl;
     }
-
-    // char   letter  = askLetterToThePlayer();
-    // size_t pos     = 0;
-    // size_t lastPos = 0;
-    // while (wordToGuess.find(letter, pos) < wordToGuess.size()) {
-    //     std::cout << "GG elle y est !" << std::endl;
-    //     std::cout << pos << std::endl;
-    //     findingLetterOfTheWordToGuess[wordToGuess.find(letter, pos + lastPos - 1)] = letter;
-    //     lastPos                                                                    = wordToGuess.find(letter, pos);
-    //     std::cout << findingLetterOfTheWordToGuess << std::endl;
-    //     pos += wordToGuess.find(letter, pos);
-    // }
+    endGameAnnounce(playerLives);
 }
 
 std::string chooseRandomWord()
@@ -48,22 +40,51 @@ std::string chooseRandomWord()
 char askLetterToThePlayer()
 {
     char returnLetter;
-    std::cout << "Propose une lettre :" << std::endl;
+    std::cout << "Give a letter :" << std::endl;
     std::cin >> returnLetter;
     return returnLetter;
 }
 
-bool isWordFound(std::string playerWord, std::string wordToGuess)
+bool isWordFound(const std::string playerWord, const std::string wordToGuess)
 {
     return (playerWord == wordToGuess);
 }
 
-bool isPlayerAlive(int livesOfPlayer)
+bool isPlayerAlive(const int livesOfPlayer)
 {
     return (livesOfPlayer > 0);
 }
 
-bool isTheLetterInTheWord(char letterChooseByPlayer, std::string wordToGuess)
+bool isTheLetterInTheWord(const char letterChooseByPlayer, const std::string wordToGuess)
 {
     return (wordToGuess.find(letterChooseByPlayer) < wordToGuess.size());
+}
+
+void findAllOccurances(std::vector<size_t>& vec, const char letterChooseByPlayer, std::string wordToGuess)
+{
+    size_t pos = wordToGuess.find(letterChooseByPlayer);
+    while (pos < wordToGuess.size()) {
+        vec.push_back(pos);
+        pos = wordToGuess.find(letterChooseByPlayer, pos + 1);
+    }
+}
+
+std::string updateGuessedWord(const char letterChooseByPlayer, const std::string wordToGuess, std::string wordGuessed)
+{
+    std::vector<size_t> vec;
+    findAllOccurances(vec, letterChooseByPlayer, wordToGuess);
+    for (size_t pos : vec) {
+        wordGuessed[pos] = wordToGuess[pos];
+    }
+    return wordGuessed;
+}
+
+void endGameAnnounce(const int livesOfPlayer)
+{
+    if (livesOfPlayer != 0) {
+        std::cout << "GG you win and you still have " << livesOfPlayer << " lives !";
+    }
+    else {
+        std::cout << "You loose sorry :(";
+    }
 }
