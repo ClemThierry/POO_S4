@@ -1,5 +1,7 @@
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
+
 
 int pick_random_number();
 

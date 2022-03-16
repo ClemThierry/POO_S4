@@ -2,7 +2,8 @@
 
 int pick_random_number()
 {
-    return rand() % 10 + 1;
+    std::srand((int)std::time(0));
+    return rand() % 100 + 1;
 };
 
 void compare_user_number_to_random_number(int theNumberToGuess, int theUserNumber)
