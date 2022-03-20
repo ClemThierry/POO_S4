@@ -3,21 +3,30 @@
 
 void hangmanGame()
 {
+    //////////////////////INITIALIZATION//////////////////////
+
+    // Choice of word and display
     std::string wordToGuess = chooseRandomWord();
     std::string findingLetterOfTheWordToGuess(wordToGuess.size(), '_');
 
-    std::cout << wordToGuess << std::endl;
     std::cout << findingLetterOfTheWordToGuess << std::endl;
-
+    // init of player lives
     int playerLives = 10;
 
+    ////////////////////////THE GAME////////////////////////
+
     while (isPlayerAlive(playerLives) && !isWordFound(findingLetterOfTheWordToGuess, wordToGuess)) {
+        // The player choose a letter
         char letter = askLetterToThePlayer();
+
+        // Checking if the letter is in the word
         if (isTheLetterInTheWord(letter, wordToGuess)) {
             std::cout << "Good choice !" << std::endl;
+            // if yes --> updating the hidden word
             findingLetterOfTheWordToGuess = updateGuessedWord(letter, wordToGuess, findingLetterOfTheWordToGuess);
         }
         else {
+            // if no --> subtracting 1 life
             std::cout << "Nope" << std::endl;
             playerLives--;
             std::cout << "You only have " << playerLives << " lives left." << std::endl;
@@ -29,12 +38,14 @@ void hangmanGame()
 
 std::string chooseRandomWord()
 {
+    // Setting the list of words to guess
     std::vector<std::string> listOfWords = {"chaat",
                                             "chat",
                                             "chien",
                                             "crocodile",
                                             "loup"};
-    return listOfWords[0];
+    // Choose a random word in the list
+    return listOfWords[pick_random_number(0, static_cast<int>(listOfWords.size() - 1))];
 }
 
 char askLetterToThePlayer()
