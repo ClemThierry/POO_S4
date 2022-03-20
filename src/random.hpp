@@ -1,9 +1,8 @@
 #include <cstdlib>
-#include <ctime>
 #include <iostream>
+#include <random>
 
-
-int pick_random_number();
+int pick_random_number(int min, int max);
 
 void compare_user_number_to_random_number(int theNumberToGuess, int theUserNumber);
 

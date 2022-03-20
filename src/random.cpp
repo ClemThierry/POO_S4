@@ -1,18 +1,24 @@
 #include "random.hpp"
 
-int pick_random_number()
+int pick_random_number(int min, int max)
 {
-    std::srand((int)std::time(0));
-    return rand() % 100 + 1;
+    static std::default_random_engine  generator{std::random_device{}()};
+    std::uniform_int_distribution<int> distribution{min, max};
+    return distribution(generator);
 };
 
 void compare_user_number_to_random_number(int theNumberToGuess, int theUserNumber)
 {
-    if (theUserNumber > theNumberToGuess) {
-        std::cout << "Smaller" << std::endl;
+    if (theNumberToGuess == theUserNumber) {
+        std::cout << "Congrats, you won !" << std::endl;
     }
     else {
-        std::cout << "Greater" << std::endl;
+        if (theUserNumber > theNumberToGuess) {
+            std::cout << "Smaller" << std::endl;
+        }
+        else {
+            std::cout << "Greater" << std::endl;
+        }
     }
 };
 
@@ -30,18 +36,16 @@ int askNumberToTheUser()
 void randomGame()
 {
     std::cout << "THE GAME" << std::endl;
-    int numberToGuess = pick_random_number();
+    int numberToGuess = pick_random_number(0, 100);
 
     std::cout << "I picked a number between 0 and 100" << std::endl
               << "Guess the number : " << std::endl;
-    int userNumber = askNumberToTheUser();
 
+    int userNumber = askNumberToTheUser();
     compare_user_number_to_random_number(numberToGuess, userNumber);
 
     while (numberToGuess != userNumber) {
         userNumber = askNumberToTheUser();
         compare_user_number_to_random_number(numberToGuess, userNumber);
     }
-
-    std::cout << "Congrats, you won !" << std::endl;
 }
