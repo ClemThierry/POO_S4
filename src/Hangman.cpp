@@ -15,7 +15,7 @@ void hangmanGame()
 
     ////////////////////////THE GAME////////////////////////
 
-    while (isPlayerAlive(playerLives) && !isWordFound(findingLetterOfTheWordToGuess, wordToGuess)) {
+    while (isPlayerAlive(playerLives) && !isWordFound(findingLetterOfTheWordToGuess)) {
         // The player choose a letter
         char letter = askLetterToThePlayer();
 
@@ -56,9 +56,9 @@ char askLetterToThePlayer()
     return returnLetter;
 }
 
-bool isWordFound(const std::string playerWord, const std::string wordToGuess)
+bool isWordFound(const std::string& playerWord)
 {
-    return (playerWord == wordToGuess);
+    return !(playerWord.find('_') != std::string::npos);
 }
 
 bool isPlayerAlive(const int livesOfPlayer)

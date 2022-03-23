@@ -6,7 +6,7 @@
 void        hangmanGame();
 std::string chooseRandomWord();
 char        askLetterToThePlayer();
-bool        isWordFound(const std::string playerWord, const std::string wordToGuess);
+bool        isWordFound(const std::string& playerWord);
 bool        isPlayerAlive(const int livesOfPlayer);
 bool        isTheLetterInTheWord(char letterChooseByPlayer, const std::string wordToGuess);
 void        findAllOccurances(std::vector<size_t>& vec, const char letterChooseByPlayer, const std::string wordToGuess);
