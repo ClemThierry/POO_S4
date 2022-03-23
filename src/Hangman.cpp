@@ -66,7 +66,7 @@ bool isPlayerAlive(const int livesOfPlayer)
     return (livesOfPlayer > 0);
 }
 
-bool isTheLetterInTheWord(const char letterChooseByPlayer, const std::string wordToGuess)
+bool isTheLetterInTheWord(const char letterChooseByPlayer, const std::string& wordToGuess)
 {
     return (wordToGuess.find(letterChooseByPlayer) < wordToGuess.size());
 }
@@ -80,7 +80,7 @@ void findAllOccurances(std::vector<size_t>& vec, const char letterChooseByPlayer
     }
 }
 
-std::string updateGuessedWord(const char letterChooseByPlayer, const std::string wordToGuess, std::string wordGuessed)
+std::string updateGuessedWord(const char letterChooseByPlayer, const std::string& wordToGuess, std::string& wordGuessed)
 {
     std::vector<size_t> vec;
     findAllOccurances(vec, letterChooseByPlayer, wordToGuess);
