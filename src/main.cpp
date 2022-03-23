@@ -1,10 +1,8 @@
 #include <cstdlib>
 #include <iostream>
-#include "Hangman.hpp"
-#include "random.hpp"
+#include "menu.hpp"
 
 int main()
 {
-    // randomGame();
-    hangmanGame();
+    chooseGame();
 }

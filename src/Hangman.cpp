@@ -1,3 +1,4 @@
+#pragma once
 #include "Hangman.hpp"
 #include "random.hpp"
 

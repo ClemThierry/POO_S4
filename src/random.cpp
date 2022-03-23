@@ -1,3 +1,4 @@
+#pragma once
 #include "random.hpp"
 
 int pick_random_number(int min, int max)
