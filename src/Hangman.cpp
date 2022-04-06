@@ -94,9 +94,9 @@ std::string updateGuessedWord(const char letterChooseByPlayer, const std::string
 void endGameAnnounce(const int livesOfPlayer)
 {
     if (livesOfPlayer != 0) {
-        std::cout << "GG you win and you still have " << livesOfPlayer << " lives !";
+        std::cout << "GG you win and you still have " << livesOfPlayer << " lives !" << std::endl;
     }
     else {
-        std::cout << "You loose sorry :(";
+        std::cout << "You loose sorry :(" << std::endl;
     }
 }

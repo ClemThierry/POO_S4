@@ -15,4 +15,5 @@ struct compare {
     }
 };
 
-void chooseGame();
+void chooseGame(const char numberOfGameChoose);
+char askPlayerChoice();
