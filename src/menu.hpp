@@ -2,7 +2,9 @@
 #include <cstdlib>
 #include <iostream>
 #include "Hangman.hpp"
+#include "NoughtsAndCrosses.hpp"
 #include "random.hpp"
+
 
 struct compare {
     int key;
