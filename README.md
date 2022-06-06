@@ -1,29 +1,51 @@
-# Simple-Cpp-Setup
+# POO S4
 
-Welcome to this minimalist C++ project!
+Welcome to this minimalist C++ project made during the 4th semester of IMAC !
 
-## If you use the Dev Container
+## TP advancement
 
-If you install [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [Docker](https://www.docker.com/products/docker-desktop), you will be able to run your code inside a Linux container (kind of like a virtual machine, but faster). Also, you will get static analyzers, code formatters and useful extensions installed out of the box! It is a great option to get started with C++ quickly.
+23/02/2022
+  Set up the template
+  Beggining of Guess number game
+  Reading of all the first level
+ 
+### 09/03/2022
+  Upgrading the Guess number game
+  Beggining of the Hangman game
+  Reading the first part of the 2nd level
+  
+### 16/03/2022
+  Reading the lesson "<random>" of the 4th level
+  Upgrading the rendom function for the guess number game and the hangman
+  Workin on the hangman
 
-(Unfortunately, if you want to do GUI applications they don't work well from within a container and you might have to do a proper setup on your own desktop instead. But for simple command-line applications this works amazingly well!)
+### 20/02/2022
+  Cleaning the code
+  Finishing the hangman game  
+  Reading the end of the level 2
+  
+### 23/02/2022
+  Correction of issues
+  Add the menu
+  
+### 06/04/2022
+  Finishing a functionnal menu
+  Reading the beggining of the level 3
+  
+  
+13/04/2022
+  Add p6 to the project
+  Beggining the "morpion"
+  Reading the end of the level 3
+ 
+05/06/2022
+  Cleaning code 
+  Add some commentary
+  Finishing the "morpion"
 
-NB: the container might take a while to build the first time.
+  
 
-## If you don't use the Dev Container
+  
 
-### Compiling
 
-You need to install [CMake](https://cmake.org/download/).
 
-To use CMake I recommend this VS Code extension : [ms-vscode.cmake-tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools). You will need to setup the extension with a compiler. Here is [the tutorial](https://code.visualstudio.com/docs/cpp/cmake-linux). It is based on Linux but at the bottom of the page you will find the explanations to adapt it for [Windows](https://code.visualstudio.com/docs/cpp/config-msvc) and [Mac](https://code.visualstudio.com/docs/cpp/config-clang-mac).
-
-Alternatively you can just create a *build* folder at the root of this project, open a terminal and run `cmake ..`; chances are it will detect what compiler you have installed and generate the appropriate Makefile / Visual Studio solution / Xcode project.
-
-### Auto-formatting
-
-[Check this out](https://julesfouchy.github.io//Learn--Clean-Code-With-Cpp/lessons/formatting-tool) to learn why you would want to use a code formatter and how to do it.
-
-### Static analysis
-
-[Check this out](https://julesfouchy.github.io/Learn--Clean-Code-With-Cpp/lessons/static-analysis-and-sanitizers) to learn why you would want to use static analysis and how to do it.
