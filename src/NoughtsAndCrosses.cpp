@@ -1,6 +1,6 @@
 #pragma once
 #include "NoughtsAndCrosses.hpp"
-const float sizeBoxe = 1.f / 3.f;
+float sizeBoxe = 1.f / 3.f;
 
 void noughtsCrossesGame()
 {
@@ -30,17 +30,20 @@ void noughtsCrossesGame()
         drawBoard(ctx, gameBoardTiles);
 
         // Check if there is a winner
-        if (isEndGame(gameBoardTiles)) {
+        if (isEndGame(gameBoardTiles) || isWinner(gameBoardTiles)) {
             ctx.stop();
-            std::string winner = (isFirstPlayerPlaying) ? " 'O' " : " 'X' ";
-            std::cout << "Congratulation" << winner
-                      << "player won !";
+            if (!isWinner(gameBoardTiles)) {
+                std::cout << "No one won but no one loose, you're both losers ...";
+            }
+            else {
+                std::string winner = (isFirstPlayerPlaying) ? " 'O' " : " 'X' ";
+                std::cout << "Congratulation" << winner
+                          << "player won !";
+            }
         }
     };
 
     ctx.mouse_pressed = [&](p6::MouseButton event) {
-        std::cout << "x :" << ctx.mouse()[0] << "<=" << -1 + 2 * sizeBoxe << std::endl;
-
         int columnTileClicked = 1;
         int lineTileClicked   = 1;
 
@@ -103,7 +106,7 @@ void drawSymbols(bool& isFirstPlayerPlaying, int line, int column, std::array<st
     }
 }
 
-bool isEndGame(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles)
+bool isWinner(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles)
 {
     for (size_t i = 0; i < 3; i++) {
         // Is winning line
@@ -127,4 +130,17 @@ bool isEndGame(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles)
         }
     }
     return false;
+}
+
+bool isEndGame(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles)
+{
+    int availableCase = 9;
+    for (size_t i = 0; i < 3; i++) {
+        for (size_t j = 0; j < 3; j++) {
+            if (gameBoardTiles[i][j].insideLetter != ' ') {
+                availableCase--;
+            }
+        }
+    }
+    return !availableCase;
 }

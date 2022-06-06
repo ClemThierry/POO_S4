@@ -10,6 +10,7 @@ struct boardTile {
 };
 
 void noughtsCrossesGame();
-void drawBoard(p6::Context& ctx, const std::array<std::array<boardTile, 3>, 3>& board);
+void drawBoard(p6::Context& ctx, std::array<std::array<boardTile, 3>, 3>& board);
 void drawSymbols(bool& isFirstPlayerPlaying, int line, int column, std::array<std::array<boardTile, 3>, 3>& board);
-bool isEndGame(const std::array<std::array<boardTile, 3>, 3>& gameBoardTiles);
+bool isWinner(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles);
+bool isEndGame(std::array<std::array<boardTile, 3>, 3>& gameBoardTiles);
