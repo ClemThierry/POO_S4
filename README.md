@@ -4,7 +4,7 @@ Welcome to this minimalist C++ project made during the 4th semester of IMAC !
 
 ## TP advancement
 
-23/02/2022
+### 23/02/2022
   Set up the template
   Beggining of Guess number game
   Reading of all the first level
@@ -33,12 +33,12 @@ Welcome to this minimalist C++ project made during the 4th semester of IMAC !
   Reading the beggining of the level 3
   
   
-13/04/2022
+### 13/04/2022
   Add p6 to the project
   Beggining the "morpion"
   Reading the end of the level 3
  
-05/06/2022
+### 05/06/2022
   Cleaning code 
   Add some commentary
   Finishing the "morpion"
