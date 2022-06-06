@@ -19,7 +19,7 @@ Welcome to this minimalist C++ project made during the 4th semester of IMAC !
   Reading the first part of the 2nd level
   
 ### 16/03/2022
-  Reading the lesson "<random>" of the 4th level
+  Reading the lesson "random" of the 4th level
   
   Upgrading the rendom function for the guess number game and the hangman
   
